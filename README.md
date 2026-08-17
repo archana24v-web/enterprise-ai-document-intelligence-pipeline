@@ -12,7 +12,7 @@
 
 **An AI data-engineering portfolio project for document ingestion, data-quality validation, embeddings, and semantic retrieval.**
 
-[✨ Features](#-features) · [🏗️ Architecture](#️-architecture) · [🚀 Quick start](#-quick-start) · [🧪 Testing](#-testing) · [🗺️ Roadmap](#️-roadmap)
+[✨ Features](#-features) · [🏗️ Architecture](#️-architecture) · [🎨 Concept preview](#-concept-preview) · [🚀 Quick start](#-quick-start) · [🧪 Testing](#-testing) · [🗺️ Roadmap](#️-roadmap)
 
 </div>
 
@@ -55,6 +55,12 @@ flowchart LR
     F --> I[📌 Relevant Chunks]
 ```
 
+## 🎨 Concept preview
+
+> This is a visual concept for the planned Streamlit interface. It is not presented as a live-run screenshot. Replace it with real screenshots after running the app locally.
+
+![Conceptual UI preview](docs/images/conceptual-ui-preview.svg)
+
 ## 🧰 Tech stack
 
 | Layer | Technologies |
@@ -71,6 +77,9 @@ flowchart LR
 ```text
 ├── app/                    # Streamlit user interface
 │   └── streamlit_app.py
+├── docs/                   # Architecture and project documentation
+│   ├── architecture.md
+│   └── images/
 ├── src/                    # Reusable pipeline components
 │   ├── ingest.py           # PDF extraction helpers
 │   ├── quality_checks.py   # Data validation rules
