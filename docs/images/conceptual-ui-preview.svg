@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2ff"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1e293b" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect x="40" y="32" width="1360" height="70" rx="16" fill="#111827"/>
+  <text x="78" y="76" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="700">📄 Enterprise AI Document Intelligence Pipeline</text>
+  <text x="1160" y="76" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="16">Concept Preview</text>
+  <rect x="40" y="130" width="400" height="690" rx="20" fill="#ffffff" filter="url(#shadow)"/>
+  <text x="76" y="186" fill="#111827" font-family="Arial, sans-serif" font-size="26" font-weight="700">Upload a document</text>
+  <text x="76" y="220" fill="#64748b" font-family="Arial, sans-serif" font-size="16">PDF or text files supported</text>
+  <rect x="76" y="254" width="328" height="150" rx="14" fill="#f8fafc" stroke="#c7d2fe" stroke-width="2" stroke-dasharray="7 7"/>
+  <text x="161" y="315" fill="#4f46e5" font-family="Arial, sans-serif" font-size="38">⇧</text>
+  <text x="112" y="354" fill="#334155" font-family="Arial, sans-serif" font-size="16" font-weight="700">Q2-Financial-Report.pdf</text>
+  <rect x="76" y="438" width="328" height="56" rx="12" fill="#4f46e5"/>
+  <text x="143" y="473" fill="#ffffff" font-family="Arial, sans-serif" font-size="17" font-weight="700">Build AI search index</text>
+  <text x="76" y="556" fill="#111827" font-family="Arial, sans-serif" font-size="21" font-weight="700">Data-quality result</text>
+  <rect x="76" y="580" width="328" height="116" rx="14" fill="#ecfdf5" stroke="#86efac"/>
+  <text x="98" y="620" fill="#15803d" font-family="Arial, sans-serif" font-size="18" font-weight="700">✓ Valid document</text>
+  <text x="98" y="654" fill="#166534" font-family="Arial, sans-serif" font-size="15">14,832 characters · 19 chunks indexed</text>
+  <rect x="470" y="130" width="930" height="690" rx="20" fill="#ffffff" filter="url(#shadow)"/>
+  <text x="510" y="186" fill="#111827" font-family="Arial, sans-serif" font-size="26" font-weight="700">Semantic search</text>
+  <text x="510" y="220" fill="#64748b" font-family="Arial, sans-serif" font-size="16">Ask questions and retrieve the most relevant evidence</text>
+  <rect x="510" y="254" width="680" height="54" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="532" y="288" fill="#334155" font-family="Arial, sans-serif" font-size="16">What were the company’s key risks?</text>
+  <rect x="1208" y="254" width="145" height="54" rx="12" fill="#4f46e5"/>
+  <text x="1251" y="288" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="700">Search</text>
+  <text x="510" y="362" fill="#111827" font-family="Arial, sans-serif" font-size="21" font-weight="700">Retrieved evidence</text>
+  <rect x="510" y="388" width="843" height="105" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="534" y="424" fill="#4f46e5" font-family="Arial, sans-serif" font-size="16" font-weight="700">Chunk 4</text><text x="1218" y="424" fill="#15803d" font-family="Arial, sans-serif" font-size="14">distance 0.1842</text>
+  <text x="534" y="458" fill="#475569" font-family="Arial, sans-serif" font-size="15">Risk exposure increased due to changes in operating costs and supply-chain conditions...</text>
+  <rect x="510" y="514" width="843" height="105" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="534" y="550" fill="#4f46e5" font-family="Arial, sans-serif" font-size="16" font-weight="700">Chunk 11</text><text x="1218" y="550" fill="#15803d" font-family="Arial, sans-serif" font-size="14">distance 0.2371</text>
+  <text x="534" y="584" fill="#475569" font-family="Arial, sans-serif" font-size="15">Management identified interest-rate volatility and demand uncertainty as material risks...</text>
+  <rect x="510" y="640" width="843" height="105" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="534" y="676" fill="#4f46e5" font-family="Arial, sans-serif" font-size="16" font-weight="700">Chunk 16</text><text x="1218" y="676" fill="#15803d" font-family="Arial, sans-serif" font-size="14">distance 0.3016</text>
+  <text x="534" y="710" fill="#475569" font-family="Arial, sans-serif" font-size="15">The report notes controls for data governance, security, and regulatory compliance...</text>
+  <text x="50" y="870" fill="#64748b" font-family="Arial, sans-serif" font-size="14">CONCEPTUAL UI PREVIEW — use real local-run screenshots for evidence of a working deployment.</text>
+</svg>
