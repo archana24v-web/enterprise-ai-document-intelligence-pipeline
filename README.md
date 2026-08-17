@@ -1,67 +1,164 @@
-# Enterprise AI Document Intelligence Pipeline
+<div align="center">
 
-A production-style AI data engineering portfolio project that turns unstructured PDFs and text documents into a searchable knowledge base. It demonstrates ingestion, data-quality validation, chunking, vector embeddings, semantic retrieval, automated tests, and CI.
+# 📄 Enterprise AI Document Intelligence Pipeline
 
-## Architecture
+### Turn PDFs and text documents into a searchable AI knowledge base
 
-```text
-PDF / TXT upload
-      |
-      v
-Text extraction -> data-quality checks -> overlapping chunking
-      |
-      v
-Sentence Transformer embeddings -> ChromaDB vector store
-      |
-      v
-Streamlit semantic-search interface
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Store-6C63FF)](https://www.trychroma.com/)
+[![CI](https://github.com/archana24v-web/enterprise-ai-document-intelligence-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/archana24v-web/enterprise-ai-document-intelligence-pipeline/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+**An AI data-engineering portfolio project for document ingestion, data-quality validation, embeddings, and semantic retrieval.**
+
+[✨ Features](#-features) · [🏗️ Architecture](#️-architecture) · [🚀 Quick start](#-quick-start) · [🧪 Testing](#-testing) · [🗺️ Roadmap](#️-roadmap)
+
+</div>
+
+---
+
+## 🎯 The problem
+
+Teams store valuable information in PDFs, reports, policies, and other unstructured documents. Finding the correct answer is slow because normal keyword search cannot understand meaning.
+
+This project creates a local **AI document-intelligence pipeline** that converts documents into searchable vector data. A user uploads a PDF or text file, the pipeline validates and chunks the content, creates embeddings, stores them in ChromaDB, and returns the most relevant passages for a question.
+
+> **Example:** Upload a financial report and ask: *“What were the company’s key risks?”* The application retrieves the most relevant report sections instead of requiring you to read the entire document.
+
+## ✨ Features
+
+| Capability | What it demonstrates |
+|---|---|
+| 📤 Document ingestion | Upload `.pdf` and `.txt` documents through Streamlit |
+| 🧹 Data quality | Detects documents with insufficient extracted text |
+| ✂️ Chunking | Creates overlapping text chunks for retrieval |
+| 🧠 AI embeddings | Uses Sentence Transformers (`all-MiniLM-L6-v2`) |
+| 🗄️ Vector database | Stores searchable embeddings in ChromaDB |
+| 🔎 Semantic retrieval | Finds passages related by meaning, not only keywords |
+| ✅ Automated tests | Validates chunking and data-quality logic with Pytest |
+| 🔁 CI pipeline | Runs tests automatically on pushes and pull requests |
+| 🐳 Container-ready | Includes a Dockerfile for consistent local execution |
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart LR
+    A[📄 PDF / TXT Document] --> B[📥 Text Extraction]
+    B --> C{🧹 Quality Check}
+    C -->|Valid| D[✂️ Overlapping Chunks]
+    C -->|Invalid| X[⚠️ Validation Result]
+    D --> E[🧠 Sentence Transformer]
+    E --> F[(🗄️ ChromaDB)]
+    G[💬 User Question] --> H[🔎 Semantic Search]
+    H --> F
+    F --> I[📌 Relevant Chunks]
 ```
 
-## Features
+## 🧰 Tech stack
 
-- Upload PDF and TXT documents
-- Extract and validate document text
-- Chunk content with overlap for retrieval
-- Generate embeddings using `all-MiniLM-L6-v2`
-- Store vectors locally in ChromaDB
-- Retrieve the most semantically relevant chunks for a question
-- Run unit tests with Pytest on every push and pull request
-- Run locally or in Docker
+| Layer | Technologies |
+|---|---|
+| Application | Python, Streamlit |
+| Document processing | PyPDF |
+| AI / embeddings | Sentence Transformers |
+| Vector storage | ChromaDB |
+| Testing | Pytest |
+| Delivery | Docker, GitHub Actions |
 
-## Local setup
+## 📁 Repository map
+
+```text
+├── app/                    # Streamlit user interface
+│   └── streamlit_app.py
+├── src/                    # Reusable pipeline components
+│   ├── ingest.py           # PDF extraction helpers
+│   ├── quality_checks.py   # Data validation rules
+│   ├── chunking.py         # Overlapping chunk logic
+│   └── vector_store.py     # Embeddings and ChromaDB search
+├── tests/                  # Automated unit tests
+├── .github/workflows/      # GitHub Actions CI
+├── Dockerfile
+└── requirements.txt
+```
+
+## 🚀 Quick start
+
+### 1. Clone the project
+
+```bash
+git clone https://github.com/archana24v-web/enterprise-ai-document-intelligence-pipeline.git
+cd enterprise-ai-document-intelligence-pipeline
+```
+
+### 2. Create and activate a virtual environment
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # Windows PowerShell: .venv\Scripts\Activate.ps1
+```
+
+**Windows PowerShell**
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+**macOS / Linux**
+
+```bash
+source .venv/bin/activate
+```
+
+### 3. Install packages and start the app
+
+```bash
 pip install -r requirements.txt
 streamlit run app/streamlit_app.py
 ```
 
-Open `http://localhost:8501`, upload a document, select **Build AI search index**, then ask a question. The first embedding run downloads the open-source model.
+Open **http://localhost:8501** in your browser. The first embedding run downloads the open-source model locally.
 
-## Tests
+## 🧪 Testing
+
+Run the unit-test suite locally:
 
 ```bash
 pytest -q
 ```
 
-## Docker
+Every push and pull request triggers the GitHub Actions workflow. This protects core data-pipeline logic from regressions.
+
+## 🐳 Docker
 
 ```bash
 docker build -t ai-document-intelligence .
 docker run -p 8501:8501 ai-document-intelligence
 ```
 
-## Engineering practices
+Then visit **http://localhost:8501**.
 
-- Unit tests for chunking and document validation
-- GitHub Actions CI workflow
-- Modular ingestion, quality, chunking, and vector-store components
-- No API key is required for the local semantic-search demo
+## 📊 Data-engineering highlights
 
-## Roadmap
+- Separates ingestion, validation, transformation, and storage into modular components.
+- Adds a validation gate before costly embedding operations.
+- Uses deterministic chunk IDs and metadata to support future lineage and observability.
+- Treats CI and automated testing as first-class pipeline requirements.
+- Runs locally without requiring a paid AI API key.
 
-- Add source citations and answer generation with an LLM
-- Add metadata filtering and document lineage
-- Add Docker Compose and object storage
-- Deploy the Streamlit application
+## 🗺️ Roadmap
+
+- [x] PDF and text ingestion
+- [x] Data-quality checks and text chunking
+- [x] Embeddings and ChromaDB vector search
+- [x] Streamlit interface
+- [x] Pytest and GitHub Actions CI
+- [ ] Add cited LLM answers over retrieved chunks
+- [ ] Add metadata filters and document lineage
+- [ ] Add Docker Compose and cloud object storage
+- [ ] Deploy the application and add demo screenshots
+
+## 👤 Author
+
+Built as a hands-on AI Data Engineering portfolio project by [Archana](https://github.com/archana24v-web).
+
+If this project helps you, consider giving it a ⭐.
